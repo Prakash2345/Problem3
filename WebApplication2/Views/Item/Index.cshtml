@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebApplication2.Models.ItemViewModel>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ITCODE
+        </th>
+        <th>
+            ITDESC
+        </th>
+        <th>
+            ITRATE
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (item != null)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITDESC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITRATE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ITCODE.Trim() }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ITCODE.Trim() })
+        </td>
+    </tr>
+    }
+}
+
+</table>

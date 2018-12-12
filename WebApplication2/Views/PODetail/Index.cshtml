@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebApplication2.Models.PODetailViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PONO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITCODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QTY)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (item != null)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PONO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITCODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QTY)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PONO.Trim() }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PONO.Trim() })
+        </td>
+    </tr>
+    }
+}
+
+</table>
